@@ -22,7 +22,6 @@ import { gynaecologists, paediatricians, orthopaedicSurgeons, dermatologists, ca
 import { generalPractioners, paediatricians as paeds, dermatologists as derms, cardiologists as cards, fertilityClinics as fcs, physiotherapists, psychologists, psychiatrists, dieticians, diagnosticLabs, radiology, homeCarServices, oldAgeHomes, rehabilitationCentres, optometrists, chiropractors } from './data/expandedMedicalSeeds';
 import { executiveRecruitment, hospitalityStaffing, skilledTradesRecruitment, temporaryContractStaffing, hrConsultingOutsourcing } from './data/recruitmentAndStaffingSeeds';
 import { cleaningServices, gardeningLandscaping, homeMaintenanceHandyman, nanniesCaregiverss, elderlyCareServices } from './data/domesticAndPersonalServicesSeeds';
-import { convenienceStores, superettes, spazaShops, butcheries, bakeries, liquorStores } from './data/convenienceAndDailyNeedsSeeds';
 import { gynecologists, maternityClinics, midwivesDoulas, creches, aftercareTutors, kidsActivityCentres } from './data/womenHealthAndMaternalSeeds';
 import { buildersContractors, plumbingElectrical, roofingRenovations, interiorDesigners, landscapingGardening, smartHomeInstallation, customFurnitureMakers, poolGardenDesigners } from './data/homeConstructionTradesSeeds';
 import { legalServices, accountingAndTax, consultants, marketingAndAdvertising, techAndITServices, architectsAndDesigners, businessBrokersAndAdvisors, lifeCoachesAndMentors, translationAndLanguageServices, prAndMediaConsultants } from './data/businessProfessionalSeeds';
@@ -43,6 +42,7 @@ import { SectionTitle, LuxuryCard, CategoryCard, PrimaryButton, MarketButton, He
 import PremiumAddBusinessView from './components/PremiumAddBusinessView';
 import BusinessSubmissionFormV2 from './components/BusinessSubmissionFormV2';
 import ListYourBusinessPage from './components/ListYourBusinessPage';
+import PWAInstallButton from './components/PWAInstallButton';
 import {
     FoodIcon,
     TourismIcon,
@@ -1144,7 +1144,7 @@ const WhyPeopleUseSection = () => (
                     },
                     {
                         title: "AI Concierge",
-                        desc: "Local knowledge, powered by intelligent AI.",
+                        desc: "Smart recommendations, deeply local insights.",
                         icon: Sparkles
                     },
                     {
@@ -1174,11 +1174,10 @@ const MarketplaceView = ({ navigate, favorites, toggleFavorite, onChat, activeAr
     const [isAiSearching, setIsAiSearching] = useState(false);
     const [aiResults, setAiResults] = useState<string[] | null>(null);
     
-    // Exact requested categories + All Products
+    // Optimized 7-category marketplace model
     const marketCategories = [
-        'All Products', 'Electronics', 'Fashion', 'Beauty & Personal Care', 
-        'Home & Living', 'Art & Collectibles', 'Jewellery & Accessories', 
-        'Outdoor & Garden', 'Local Handmade'
+        'All Products', 'Electronics', 'Fashion', 'Home & Living', 
+        'Beauty & Wellness', 'Food & Beverage', 'Luxury'
     ];
 
     const handleAiSearch = async () => {
@@ -1221,7 +1220,7 @@ const MarketplaceView = ({ navigate, favorites, toggleFavorite, onChat, activeAr
         <div className="pt-24 pb-12 container mx-auto px-4 min-h-screen">
             <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
                 <div>
-                    <SectionTitle title="Marketplace" subtitle="Regional Luxury & Handpicked Gems" />
+                    <SectionTitle title="Marketplace" subtitle="Handpicked Sellers & Local Artisans" />
                     <button onClick={() => onChat("Find something unique in the marketplace")} className="text-gold-400 text-[10px] font-black uppercase tracking-[0.2em] flex items-center gap-2 mt-2 group bg-gold-500/5 px-3 py-1.5 rounded-full border border-gold-500/20 hover:bg-gold-500/10 transition-all">
                         <Sparkles size={12} className="group-hover:animate-pulse text-gold-500" /> Shopping Assistant
                     </button>
@@ -1321,21 +1320,85 @@ const MarketplaceView = ({ navigate, favorites, toggleFavorite, onChat, activeAr
                     </div>
                 )}
             </div>
+
+            {/* Featured Local Sellers */}
+            <div className="mt-24 mb-24">
+                <div className="mb-12">
+                    <h2 className="text-3xl md:text-4xl font-serif text-white mb-3">Featured Local Sellers</h2>
+                    <p className="text-gray-400 text-sm uppercase tracking-widest">Meet the artisans & entrepreneurs building Mpumalanga's marketplace</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {/* Featured Seller 1 */}
+                    <div className="group bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-2xl p-8 hover:border-gold-500/30 transition-all duration-500 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/5 rounded-full blur-2xl group-hover:bg-gold-500/10 transition-all duration-700"></div>
+                        <div className="relative z-10">
+                            <div className="w-16 h-16 rounded-full bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-4 group-hover:border-gold-500/40 transition-all">
+                                <span className="text-2xl">🎨</span>
+                            </div>
+                            <h3 className="text-xl font-serif text-white mb-2">Lowveld Artisans</h3>
+                            <p className="text-gray-400 text-sm mb-4">Handcrafted textiles & home decor with local stories</p>
+                            <div className="flex items-center gap-4">
+                                <div className="text-xs">
+                                    <div className="text-gold-400 font-bold">4.9★</div>
+                                    <div className="text-gray-500">156 reviews</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Featured Seller 2 */}
+                    <div className="group bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-2xl p-8 hover:border-gold-500/30 transition-all duration-500 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/5 rounded-full blur-2xl group-hover:bg-gold-500/10 transition-all duration-700"></div>
+                        <div className="relative z-10">
+                            <div className="w-16 h-16 rounded-full bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-4 group-hover:border-gold-500/40 transition-all">
+                                <span className="text-2xl">✨</span>
+                            </div>
+                            <h3 className="text-xl font-serif text-white mb-2">Glow Lab</h3>
+                            <p className="text-gray-400 text-sm mb-4">Premium skincare & natural beauty from Mpumalanga</p>
+                            <div className="flex items-center gap-4">
+                                <div className="text-xs">
+                                    <div className="text-gold-400 font-bold">5.0★</div>
+                                    <div className="text-gray-500">203 reviews</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Featured Seller 3 */}
+                    <div className="group bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-2xl p-8 hover:border-gold-500/30 transition-all duration-500 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/5 rounded-full blur-2xl group-hover:bg-gold-500/10 transition-all duration-700"></div>
+                        <div className="relative z-10">
+                            <div className="w-16 h-16 rounded-full bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-4 group-hover:border-gold-500/40 transition-all">
+                                <span className="text-2xl">🏠</span>
+                            </div>
+                            <h3 className="text-xl font-serif text-white mb-2">Mbombela Interiors</h3>
+                            <p className="text-gray-400 text-sm mb-4">Contemporary furniture & design for modern living</p>
+                            <div className="flex items-center gap-4">
+                                <div className="text-xs">
+                                    <div className="text-gold-400 font-bold">4.8★</div>
+                                    <div className="text-gray-500">89 reviews</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-            <div className="mt-24 p-16 rounded-[3rem] bg-gradient-to-br from-[#0c0c0c] to-[#050505] border border-white/5 text-center relative overflow-hidden group">
+            <div className="mt-12 p-16 rounded-[3rem] bg-gradient-to-br from-[#0c0c0c] to-[#050505] border border-white/5 text-center relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-gold-500/5 rounded-full blur-[120px] pointer-events-none group-hover:bg-gold-500/10 transition-all duration-1000"></div>
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold-500/5 rounded-full blur-[100px] pointer-events-none"></div>
                 
-                <h2 className="text-4xl md:text-5xl font-serif text-white mb-6 relative z-10">Exclusive Digital Storefronts</h2>
+                <h2 className="text-4xl md:text-5xl font-serif text-white mb-6 relative z-10">Become a Seller</h2>
                 <p className="text-gray-400 text-base max-w-2xl mx-auto mb-12 relative z-10 leading-relaxed uppercase tracking-widest">
-                    Mpumalanga's most discerning audience is waiting for your quality products. <br/> From tech innovation to artisanal fashion — claim your space.
+                    Reach verified buyers across Mpumalanga through a curated marketplace experience. <br/> No commissions. Direct customer relationships.
                 </p>
                 <div className="flex justify-center relative z-10">
                     <button 
                         onClick={() => navigate('list-your-business')}
                         className="bg-white hover:bg-gold-500 text-black px-12 py-5 rounded-full font-black uppercase text-[11px] tracking-[0.25em] transition-all transform hover:-translate-y-2 shadow-2xl shadow-white/5 hover:shadow-gold-500/20"
                     >
-                        Launch Your Store
+                        Start Selling
                     </button>
                 </div>
             </div>
@@ -2007,9 +2070,6 @@ const Footer = ({ navigate, onLogin }: any) => {
     <footer className="bg-[#0f0f0f] border-t border-gold-500/20 pt-24 pb-12">
         <div className="container mx-auto px-4">
 
-                <div className="mb-8 text-center">
-                    <p className="text-gray-400 text-sm leading-relaxed">We exist to bridge the gap between quality businesses and quality audiences.</p>
-                </div>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-16 mb-20">
                 <div className="col-span-2">
                     <div className="flex items-center gap-3 mb-8 cursor-pointer" onClick={() => navigate('home')}>
@@ -2017,7 +2077,7 @@ const Footer = ({ navigate, onLogin }: any) => {
                         <span className="text-lg font-serif tracking-widest text-white uppercase">LOWVELD<span className="text-gold-500">HUB</span></span>
                     </div>
                     <p className="text-gray-500 text-sm max-w-xs leading-relaxed">
-                        LowveldHub — Mpumalanga's premier digital ecosystem, connecting discerning consumers with the region's most trusted businesses and experiences.
+                        A refined digital ecosystem connecting people to Mpumalanga's most trusted businesses and experiences.
                     </p>
                 </div>
                 <div>
@@ -2027,7 +2087,7 @@ const Footer = ({ navigate, onLogin }: any) => {
                         <li><button onClick={() => navigate('marketplace')} className="hover:text-gold-400 transition-colors duration-300">Marketplace</button></li>
                         <li><button onClick={() => navigate('real-estate')} className="hover:text-gold-400 transition-colors duration-300">Real Estate</button></li>
                         <li><button onClick={() => navigate('cars')} className="hover:text-gold-400 transition-colors duration-300">Automotive</button></li>
-                        <li><button onClick={() => navigate('stays')} className="hover:text-gold-400 transition-colors duration-300">Stays</button></li>
+                        <li><button onClick={() => navigate('stays')} className="hover:text-gold-400 transition-colors duration-300">Hospitality</button></li>
                         <li><button onClick={() => navigate('lowveld-stories')} className="hover:text-gold-400 transition-colors duration-300">Stories</button></li>
                     </ul>
                 </div>
@@ -2103,6 +2163,7 @@ const DirectoryView = ({ navigate, favorites, toggleFavorite, businesses, initia
     const [searchInput, setSearchInput] = useState('');
     const [isSearching, setIsSearching] = useState(false);
     const [showAllCategories, setShowAllCategories] = useState(true); // ✅ Force show all cards on mount
+    const [categoryFilter, setCategoryFilter] = useState<'All' | 'Popular' | 'New' | 'Featured'>('All'); // ✅ NEW: Category filter tabs
 
     useEffect(() => {
         // ✅ Show all categories on mount, then allow filtering
@@ -2120,7 +2181,6 @@ const DirectoryView = ({ navigate, favorites, toggleFavorite, businesses, initia
     const categories = [
         { label: Category.FoodAndHospitality, icon: FoodIcon },
         { label: Category.TourismTravelAndStays, icon: TourismIcon },
-        { label: Category.LuxuryAndLifestyle, icon: LuxuryIcon },
         { label: Category.NightlifeAndEntertainment, icon: NightlifeIcon },
         { label: Category.BeautyWellnessPersonalCare, icon: BeautyIcon },
         { label: Category.HealthAndMedical, icon: HealthIcon },
@@ -2129,57 +2189,40 @@ const DirectoryView = ({ navigate, favorites, toggleFavorite, businesses, initia
         { label: Category.TransportChauffeursFleet, icon: TransportIcon },
         { label: Category.HomeConstructionAndTrades, icon: HomeTradesIcon },
         { label: Category.LegalAndAdvisory, icon: BusinessIcon },
-        { label: Category.BusinessGrowthAndConsulting, icon: BusinessIcon },
         { label: Category.DigitalMediaAndTechnology, icon: ITIcon },
         { label: Category.FinancialServices, icon: FinancialIcon },
         { label: Category.EducationAndSkills, icon: EducationIcon },
-        { label: Category.ManufacturingWholesaleSuppliers, icon: AgricultureIcon },
         { label: Category.CommunityAndOrganisations, icon: FamilyIcon },
-        { label: Category.GovernmentAndPublicServices, icon: GovIcon },
         { label: Category.EventsExperiencesAndOccasions, icon: EventIcon },
         { label: Category.SportsFitnessAndRecreation, icon: SportsIcon },
         { label: Category.PetsVeterinaryAndAnimalCare, icon: PetsIcon },
         { label: Category.SecurityProtectionAndResponse, icon: SecurityIcon },
-        { label: Category.EnergyWaterAndSustainability, icon: EnergyIcon },
-        { label: Category.CreatorEconomyAndTalent, icon: CreatorIcon },
-        { label: Category.RecruitmentAndStaffing, icon: RecruitmentIcon },
         { label: Category.DomesticAndPersonalServices, icon: DomesticIcon },
-        { label: Category.ConvenienceAndDailyNeeds, icon: ConvenienceIcon },
-        { label: Category.WomenHealthAndMaternal, icon: HealthIcon },
-        { label: Category.JobsAndCareers, icon: JobsIcon }
+        { label: Category.WomenHealthAndMaternal, icon: HealthIcon }
     ];
 
     const categoryDescriptions: Record<string,string> = {
         All: 'Explore curated categories',
-        [Category.FoodAndHospitality]: 'Restaurants, cafés, bakeries and shisanyama',
-        [Category.LuxuryAndLifestyle]: 'Lounges, spas and exclusive experiences',
-        [Category.ShoppingAndRetail]: 'Boutiques, markets and specialty stores',
-        [Category.BeautyWellnessPersonalCare]: 'Salons, spas & wellness',
-        [Category.HealthAndMedical]: 'Clinics, specialists & pharmacies',
-        [Category.RealEstateAndProperty]: 'Agents, rentals & property services',
-        [Category.Automotive]: 'Dealerships, rentals & services',
-        [Category.TransportChauffeursFleet]: 'Freight, logistics & transport services',
-        [Category.TourismTravelAndStays]: 'Stays, lodges, and travel experiences',
-        [Category.LegalAndAdvisory]: 'Legal, advisory and professional services',
-        [Category.BusinessGrowthAndConsulting]: 'Business consulting, accounting & strategy',
-        [Category.DigitalMediaAndTechnology]: 'Tech, creative agencies & studios',
-        [Category.HomeConstructionAndTrades]: 'Builders, trades and home services',
-        [Category.FinancialServices]: 'Banks, advisors & lenders',
-        [Category.EducationAndSkills]: 'Schools, colleges & training',
-        [Category.ManufacturingWholesaleSuppliers]: 'Manufacturing, wholesale & suppliers',
-        [Category.CommunityAndOrganisations]: 'Clubs, NGOs and community services',
-        [Category.GovernmentAndPublicServices]: 'Government offices & public services',
-        [Category.EventsExperiencesAndOccasions]: 'Event venues, experiences & celebrations',
-        [Category.SportsFitnessAndRecreation]: 'Gyms, sports facilities & recreation',
-        [Category.PetsVeterinaryAndAnimalCare]: 'Veterinary, pet care & animal services',
-        [Category.SecurityProtectionAndResponse]: 'Security, protection & emergency response',
-        [Category.EnergyWaterAndSustainability]: 'Energy, water & sustainable solutions',
-        [Category.CreatorEconomyAndTalent]: 'Creators, talent & freelance services',
-        [Category.RecruitmentAndStaffing]: 'Recruitment, staffing & HR solutions',
-        [Category.DomesticAndPersonalServices]: 'Domestic help, cleaning & personal care',
-        [Category.ConvenienceAndDailyNeeds]: 'Convenience stores, groceries & daily needs',
-        [Category.WomenHealthAndMaternal]: 'Women\'s health, maternal care & childcare',
-        [Category.JobsAndCareers]: 'Job listings & career opportunities'
+        [Category.FoodAndHospitality]: 'Dining • Fine Dining • Casual Eats',
+        [Category.ShoppingAndRetail]: 'Boutiques • Markets • Specialty Stores',
+        [Category.BeautyWellnessPersonalCare]: 'Salons • Spas • Wellness',
+        [Category.HealthAndMedical]: 'Clinics • Specialists • Pharmacies',
+        [Category.RealEstateAndProperty]: 'Agents • Rentals • Property Services',
+        [Category.Automotive]: 'Dealerships • Rentals • Services',
+        [Category.TransportChauffeursFleet]: 'Freight • Logistics • Transport',
+        [Category.TourismTravelAndStays]: 'Hotels • Lodges • Guest Houses',
+        [Category.LegalAndAdvisory]: 'Legal • Advisory • Professional Services',
+        [Category.DigitalMediaAndTechnology]: 'Tech • Creative • Studios',
+        [Category.HomeConstructionAndTrades]: 'Builders • Trades • Home Services',
+        [Category.FinancialServices]: 'Banks • Advisors • Lenders',
+        [Category.EducationAndSkills]: 'Schools • Colleges • Training',
+        [Category.CommunityAndOrganisations]: 'Clubs • NGOs • Community',
+        [Category.EventsExperiencesAndOccasions]: 'Venues • Experiences • Celebrations',
+        [Category.SportsFitnessAndRecreation]: 'Gyms • Sports • Recreation',
+        [Category.PetsVeterinaryAndAnimalCare]: 'Veterinary • Pet Care • Animal Services',
+        [Category.SecurityProtectionAndResponse]: 'Security • Protection • Response',
+        [Category.DomesticAndPersonalServices]: 'Domestic Help • Cleaning • Personal Care',
+        [Category.WomenHealthAndMaternal]: 'Women\'s Health • Maternal • Childcare'
     };
 
     useEffect(() => {
@@ -2286,6 +2329,23 @@ const DirectoryView = ({ navigate, favorites, toggleFavorite, businesses, initia
                         </div>
 
                         <div>
+                            {/* ✅ NEW: Category Filter Tabs */}
+                            <div className="flex items-center gap-2 mb-8 pb-4 border-b border-white/10">
+                                {(['All', 'Popular', 'New', 'Featured'] as const).map((filter) => (
+                                    <button
+                                        key={filter}
+                                        onClick={() => setCategoryFilter(filter)}
+                                        className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300 ${
+                                            categoryFilter === filter
+                                                ? 'bg-gold-500/20 text-gold-400 border border-gold-400/40 shadow-[0_0_12px_rgba(227,185,44,0.2)]'
+                                                : 'text-gray-400 hover:text-gray-200 border border-transparent hover:border-white/10'
+                                        }`}
+                                    >
+                                        {filter}
+                                    </button>
+                                ))}
+                            </div>
+
                             <div className="flex items-center gap-3 mb-6">
                                 <h3 className="text-white font-bold uppercase tracking-[0.08em] text-sm">Explore Categories</h3>
                             </div>
@@ -2509,11 +2569,11 @@ const QuickAccessSection = ({ navigate }: { navigate: (view: string) => void }) 
         <div className="bg-black/100 rounded-3xl p-6 shadow-[0_16px_60px_rgba(0,0,0,0.85)] border border-white/6">
             <div className="grid grid-cols-2 md:flex md:gap-8 md:justify-center md:flex-wrap gap-3">
                 {[
-                    { icon: FoodIcon, label: "Eats", view: "eats" },
-                    { icon: RealEstateIcon, label: "Estates", view: "real-estate" },
-                    { icon: AutomotiveIcon, label: "Autos", view: "cars" },
-                    { icon: HomeTradesIcon, label: "Stays", view: "stays" },
-                    { icon: HealthIcon, label: "Health", view: "health" },
+                    { icon: FoodIcon, label: "Dining", view: "eats" },
+                    { icon: RealEstateIcon, label: "Real Estate", view: "real-estate" },
+                    { icon: AutomotiveIcon, label: "Automotive", view: "cars" },
+                    { icon: HomeTradesIcon, label: "Hospitality", view: "stays" },
+                    { icon: HealthIcon, label: "Healthcare", view: "health" },
                     { icon: ProfessionalIcon, label: "Legal & Finance", view: "legal-finance" },
                     { icon: Wrench, label: "Services", view: "services" },
                     { icon: EducationIcon, label: "Education", view: "education" },
@@ -2575,7 +2635,6 @@ const SponsoredSection = () => {
                        </div>
 
                       <div className="absolute top-0 left-0 p-6 md:p-8">
-                                   <span className="text-[#B8923A] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded shadow-sm border border-gold-500/20 bg-transparent">Trusted by the Exceptional</span>
                                </div>
                            <div className="absolute bottom-0 left-0 p-8 md:p-16 max-w-2xl">
                            <h3 className="text-4xl md:text-6xl font-serif text-white mb-4 leading-tight drop-shadow-lg tracking-tight">{slide.name}</h3>
@@ -2605,6 +2664,7 @@ const PremiumExperienceSection = ({ navigate, favorites, toggleFavorite, busines
         {
             id: 'gs1',
             name: 'Veranda Fine Dining Mbombela',
+            description: 'Contemporary fine dining with a commitment to excellence and refined culinary artistry.',
             image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&q=80&w=1400',
             logo: 'https://images.unsplash.com/photo-1523875194681-bedd468c58bf?auto=format&fit=crop&q=80&w=400',
             subcategory: 'FINE DINING',
@@ -2617,6 +2677,7 @@ const PremiumExperienceSection = ({ navigate, favorites, toggleFavorite, busines
         {
             id: 'gs2',
             name: 'Hazyview River Lodge',
+            description: 'Luxury riverside retreat offering exclusive accommodation and world-class hospitality.',
             image: 'https://images.unsplash.com/photo-1501117716987-c8e5d2f0b3f8?auto=format&fit=crop&q=80&w=1400',
             logo: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=400',
             subcategory: 'HOTELS & LODGES',
@@ -2629,6 +2690,7 @@ const PremiumExperienceSection = ({ navigate, favorites, toggleFavorite, busines
         {
             id: 'gs3',
             name: 'Sabie Falls Spa & Retreat',
+            description: 'Premium wellness destination combining therapeutic treatments with tranquil natural surroundings.',
             image: 'https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&q=80&w=1400',
             logo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400',
             subcategory: 'SPAS & MASSAGE THERAPY',
@@ -2641,6 +2703,7 @@ const PremiumExperienceSection = ({ navigate, favorites, toggleFavorite, busines
         {
             id: 'gs4',
             name: 'White River Wedding Gardens',
+            description: 'Exquisite venue designed for creating unforgettable celebrations in a refined setting.',
             image: 'https://images.unsplash.com/photo-1505765056297-1f2c9c3f9f9f?auto=format&fit=crop&q=80&w=1400',
             logo: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80&w=400',
             subcategory: 'EVENT VENUES & HALLS',
@@ -2658,7 +2721,7 @@ const PremiumExperienceSection = ({ navigate, favorites, toggleFavorite, busines
                 <div className="mb-8">
                     <div className="text-[#B8923A] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded shadow-sm border border-gold-500/20 bg-transparent inline-block mb-4">Featured for editorial inspiration</div>
                 </div>
-                <SectionTitle title="Editorial Features" subtitle="Trusted by the Exceptional" />
+                <SectionTitle title="Featured Experiences" subtitle="" />
                 <p className="text-gray-400 text-sm mt-2 mb-6">A spotlight on Mpumalanga experiences.</p>
 
                 <div className="overflow-x-auto no-scrollbar py-6">
@@ -2671,12 +2734,12 @@ const PremiumExperienceSection = ({ navigate, favorites, toggleFavorite, busines
                                     <div className="absolute top-3 right-3 text-[10px] text-gold-400 font-semibold uppercase tracking-widest border border-gold-500/60 bg-black/50 px-2.5 py-1 rounded-lg shadow-[0_0_12px_rgba(227,185,44,0.2)]">{item.tier === ListingTier.Platinum ? 'PLATINUM' : item.tier === ListingTier.Elite ? 'ELITE' : ''}</div>
                                 </div>
                                 <div className="p-4 bg-[#070707]">
-                                    <h3 className="text-xl md:text-2xl font-serif text-white leading-tight mb-1">{item.name}</h3>
-                                    <div className="flex items-center justify-between text-sm text-gray-300 mb-2">
+                                    <h3 className="text-xl md:text-2xl font-serif text-white leading-tight mb-2">{item.name}</h3>
+                                    <p className="text-sm text-gray-400 mb-3 line-clamp-2">{item.description}</p>
+                                    <div className="flex items-center justify-between text-sm text-gray-300">
                                         <div>{item.subcategory} • {item.location}</div>
                                         <div className="text-gold-400 font-semibold">★ {item.rating.toFixed(1)}</div>
                                     </div>
-                                    <div className="text-[11px] text-gold-300 font-medium">Curated by LowveldHub</div>
                                 </div>
                             </div>
                         ))}
@@ -2750,7 +2813,7 @@ const MarketplaceStoryCards = ({ navigate }: any) => {
         {/* Hero Quote - Minimal & Elegant */}
         <div className="mb-8 text-center">
           <p className="text-gray-400 text-xs uppercase tracking-widest font-light mb-2">Support trusted local sellers in the Lowveld.</p>
-          <p className="text-gray-300 text-sm font-light mb-8">Authentic products. Verified sellers.</p>
+          <p className="text-gray-300 text-sm font-light mb-8">Discover authentic products from trusted local sellers.</p>
         </div>
 
         {/* CTA Buttons - Simple & Direct */}
@@ -3869,11 +3932,12 @@ const HomeView = ({ navigate, favorites, toggleFavorite, businesses, activeArea,
                                 </div>
                                 <div className="relative z-10 container mx-auto px-4 text-center">
                                         <div className="max-w-4xl mx-auto">
-                                                <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-4 tracking-tight font-black leading-tight">Discover the Best of the Lowveld</h1>
-                                                <p className="text-gray-300 text-sm md:text-base mb-8 opacity-80">A curated digital ecosystem connecting people to trusted businesses, premium services, and standout local experiences across Mpumalanga.</p>
+                                                <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-4 tracking-tight font-black leading-tight">Discover Mpumalanga's Most Refined Businesses</h1>
+                                                <p className="text-gray-300 text-sm md:text-base mb-8 opacity-80">A curated digital ecosystem connecting you to trusted brands, premium services, and exceptional experiences across the Lowveld.</p>
 
                                                 <div className="flex flex-col items-center justify-center gap-4">
                                                     <button onClick={() => navigate('directory')} className="bg-white text-black px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm shadow-2xl hover:bg-gold-500 hover:text-black transition-colors duration-500">Browse the Directory</button>
+                                                    <PWAInstallButton />
                                                 </div>
                                         </div>
                                 </div>
@@ -3885,7 +3949,7 @@ const HomeView = ({ navigate, favorites, toggleFavorite, businesses, activeArea,
             <section className="py-20 bg-[#050505] border-t border-white/5">
               <div className="container mx-auto px-4 text-center">
                 <h2 className="text-3xl md:text-4xl font-serif text-white mb-4">Our Standard of Trust</h2>
-                <p className="text-gray-400 text-base mb-8 max-w-2xl mx-auto">We verify businesses, protect quality, and keep discovery honest — without pay-to-play rankings.</p>
+                <p className="text-gray-400 text-base mb-8 max-w-2xl mx-auto">Built on trust. Designed for quality.</p>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-6">
                   <div className="bg-black/60 rounded-xl p-6 flex flex-col items-center justify-center gap-3 border border-white/6">
                     <div className="text-gold-400 font-bold uppercase tracking-widest text-sm">Verified Only</div>
@@ -4114,12 +4178,6 @@ function App() {
     ...homeMaintenanceHandyman,
     ...nanniesCaregiverss,
     ...elderlyCareServices,
-    ...convenienceStores,
-    ...superettes,
-    ...spazaShops,
-    ...butcheries,
-    ...bakeries,
-    ...liquorStores,
     ...gynecologists,
     ...maternityClinics,
     ...midwivesDoulas,
@@ -4461,7 +4519,6 @@ function App() {
             const categories = [
                 { label: Category.FoodAndHospitality, icon: FoodIcon },
                 { label: Category.TourismTravelAndStays, icon: TourismIcon },
-                { label: Category.LuxuryAndLifestyle, icon: LuxuryIcon },
                 { label: Category.NightlifeAndEntertainment, icon: NightlifeIcon },
                 { label: Category.BeautyWellnessPersonalCare, icon: BeautyIcon },
                 { label: Category.HealthAndMedical, icon: HealthIcon },
@@ -4474,21 +4531,13 @@ function App() {
                 { label: Category.EducationAndSkills, icon: EducationIcon },
                 { label: Category.DigitalMediaAndTechnology, icon: ITIcon },
                 { label: Category.FinancialServices, icon: FinancialIcon },
-                { label: Category.ManufacturingWholesaleSuppliers, icon: AgricultureIcon },
                 { label: Category.CommunityAndOrganisations, icon: FamilyIcon },
-                { label: Category.GovernmentAndPublicServices, icon: GovIcon },
                 { label: Category.EventsExperiencesAndOccasions, icon: FoodIcon },
                 { label: Category.SportsFitnessAndRecreation, icon: HealthIcon },
                 { label: Category.PetsVeterinaryAndAnimalCare, icon: HealthIcon },
                 { label: Category.SecurityProtectionAndResponse, icon: BusinessIcon },
-                { label: Category.EnergyWaterAndSustainability, icon: FinancialIcon },
-                { label: Category.RecruitmentAndStaffing, icon: RecruitmentIcon },
                 { label: Category.DomesticAndPersonalServices, icon: DomesticServicesIcon },
-                { label: Category.ConvenienceAndDailyNeeds, icon: ConvenienceIcon },
-                { label: Category.WomenHealthAndMaternal, icon: WomenHealthIcon },
-                { label: Category.JobsAndCareers, icon: BusinessIcon },
-                { label: Category.BusinessGrowthAndConsulting, icon: BusinessIcon },
-                { label: Category.CreatorEconomyAndTalent, icon: ITIcon }
+                { label: Category.WomenHealthAndMaternal, icon: WomenHealthIcon }
             ];
 
             const handleSearch = () => {
@@ -4535,7 +4584,7 @@ function App() {
                     <div className="mb-8">
                         <div className="text-left">
                             <h2 className="text-2xl md:text-3xl font-semibold text-white" style={{letterSpacing: '-0.3px'}}>Directory</h2>
-                            <p className="mt-2 text-[0.95rem]" style={{color: '#A6A6A6'}}>A curated index of the Lowveld's most trusted businesses</p>
+                            <p className="mt-2 text-[0.95rem]" style={{color: '#A6A6A6'}}>Discover Mpumalanga's most trusted businesses</p>
                         </div>
 
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-4">
@@ -4544,7 +4593,7 @@ function App() {
                                     <input
                                         value={query}
                                         onChange={e => setQuery(e.target.value)}
-                                        placeholder="Search verified businesses, services or experiences"
+                                        placeholder="Search businesses, services or experiences"
                                         className="w-full rounded-[14px] px-4 py-3 text-white placeholder-[#6F6F6F] outline-none"
                                         style={{background: '#141414', border: 'none', boxShadow: '0 0 0 1px rgba(255,215,0,0.08)'}}
                                     />
@@ -4553,7 +4602,6 @@ function App() {
 
                                 <div className="mt-2">
                                     <p className="text-[0.85rem]" style={{color: '#C9A24D', fontWeight: 500, letterSpacing: '0.4px', opacity: 0.95}}>Only vetted listings. Quality first.</p>
-                                    <p className="text-[0.85rem]" style={{color: '#C9A24D', fontWeight: 500, letterSpacing: '0.4px', opacity: 0.95}}>Powered by intelligent local discovery</p>
                                 </div>
                             </div>
 
@@ -4612,10 +4660,7 @@ function App() {
 
                                     <div className="pl-4">
                                         <div className={`flex items-center gap-2`}> 
-                                            <div className="text-[0.95rem] uppercase tracking-[1.5px] font-medium" style={{color: '#FFFFFF'}}>{cat.label}</div>
-                                            {luxuryTag && !isGovernment && (
-                                                <span style={{color: '#C9A24D', fontSize: '0.7rem', letterSpacing: '1.8px', marginLeft: '0.5rem'}} className="font-semibold">{luxuryTag}</span>
-                                            )}
+                                            <div className="text-[1rem] tracking-[0.5px] font-medium" style={{color: '#FFFFFF'}}>{cat.label}</div>
                                         </div>
                                         <div className="mt-2 text-[0.85rem]" style={{color: '#9B9B9B', lineHeight: '1.6'}}>{(CategorySubcategories as any)[cat.label as any]?.slice(0,3).join(' • ')}</div>
                                     </div>
@@ -4637,7 +4682,6 @@ function App() {
             const categoryIntro = {
                 [Category.RecruitmentAndStaffing]: 'Find vetted recruitment partners, staffing experts, and HR consultants across Mpumalanga.',
                 [Category.DomesticAndPersonalServices]: 'Premium domestic services from cleaning to elder care, all verified professionals.',
-                [Category.ConvenienceAndDailyNeeds]: 'Your daily essentials: stores, fuel, pharmacy, and more — all trusted vendors.',
                 [Category.WomenHealthAndMaternal]: 'Specialized women\'s health, maternity care, and family services by certified professionals.',
                 [Category.HealthAndMedical]: 'World-class medical care with specialists, clinics, and wellness centers.',
                 [Category.FoodAndHospitality]: 'Curated dining experiences from fine dining to casual comfort food.',
@@ -4824,21 +4868,6 @@ function App() {
 
     return (
         <div className="min-h-screen bg-[#050505] text-gray-100 font-sans">
-            {/* First-Time Visitor Onboarding Hint */}
-            {typeof window !== 'undefined' && !localStorage.getItem('lh_visited') && currentView === 'home' && (
-              <div className="fixed top-24 left-4 z-40 animate-fade-in">
-                <div className="bg-gold-500 text-black px-4 py-3 rounded-lg shadow-lg border border-gold-600 max-w-xs">
-                  <p className="text-sm font-semibold">Welcome to LowveldHub! 👋</p>
-                  <p className="text-xs text-black/80 mt-1">Discover premium businesses across Mpumalanga. Use filters or our AI Concierge to find exactly what you need.</p>
-                  <button 
-                    onClick={() => localStorage.setItem('lh_visited', 'true')}
-                    className="mt-2 text-xs underline font-bold hover:opacity-80"
-                  >
-                    Got it
-                  </button>
-                </div>
-              </div>
-            )}
             {/* NAVBAR */}
             <nav className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-white/5">
                 <div className="container mx-auto px-4 h-16 flex items-center justify-between">

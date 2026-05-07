@@ -275,12 +275,12 @@ const EducationPremium: React.FC<EducationPremiumProps> = ({ navigate, businesse
               <h2 className="text-2xl font-serif font-bold text-white mb-1">
                 All Institutions
               </h2>
-              <p className="text-slate-400">{filteredInstitutions.length} results</p>
+              <p className="text-slate-400">4 featured institutions</p>
             </div>
 
             {filteredInstitutions.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-                {filteredInstitutions.map((institution) => (
+                {filteredInstitutions.slice(0, 4).map((institution) => (
                   <div
                     key={institution.id}
                     className="bg-black/60 border border-yellow-400/30 rounded-lg overflow-hidden hover:border-yellow-400/80 hover:shadow-lg hover:shadow-yellow-400/30 transition-all cursor-pointer group"

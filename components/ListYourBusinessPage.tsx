@@ -7,7 +7,7 @@ interface ListYourBusinessPageProps {
 
 export default function ListYourBusinessPage({ onNavigate }: ListYourBusinessPageProps) {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif" }}>
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 text-center border-b border-yellow-600/30">
         <div className="max-w-4xl mx-auto">
@@ -16,11 +16,11 @@ export default function ListYourBusinessPage({ onNavigate }: ListYourBusinessPag
           </h1>
           
           <p className="text-xl text-gray-300 mb-2 max-w-2xl mx-auto leading-relaxed">
-            Join Mpumalanga's curated digital ecosystem
+            Join Mpumalanga's trusted business directory
           </p>
           
           <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-            LowveldHub is a curated platform where only trusted, high-quality businesses are accepted. Every listing is reviewed to maintain excellence, credibility, and strong presentation.
+            LowveldHub connects verified businesses with customers looking for reliable services. Every listing is reviewed to maintain platform integrity.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -59,9 +59,9 @@ export default function ListYourBusinessPage({ onNavigate }: ListYourBusinessPag
               <div className="flex items-start gap-4">
                 <Crown className="w-8 h-8 text-yellow-500 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Curated Visibility</h3>
+                  <h3 className="text-xl font-bold mb-2">Premium Visibility</h3>
                   <p className="text-gray-300">
-                    Your business is placed in a premium environment designed for high-intent customers.
+                    Your business appears in a marketplace designed for customers who actively seek trusted services.
                   </p>
                 </div>
               </div>
@@ -72,9 +72,9 @@ export default function ListYourBusinessPage({ onNavigate }: ListYourBusinessPag
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-yellow-500 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Trusted Platform</h3>
+                  <h3 className="text-xl font-bold mb-2">Verified & Trustworthy</h3>
                   <p className="text-gray-300">
-                    We verify listings to ensure credibility and protect platform quality.
+                    All listings are reviewed to ensure credibility and protect both customers and businesses.
                   </p>
                 </div>
               </div>
@@ -85,9 +85,9 @@ export default function ListYourBusinessPage({ onNavigate }: ListYourBusinessPag
               <div className="flex items-start gap-4">
                 <Users className="w-8 h-8 text-yellow-500 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Quality Audience</h3>
+                  <h3 className="text-xl font-bold mb-2">Real Customer Interest</h3>
                   <p className="text-gray-300">
-                    Reach customers who value service, presentation, and reliability over price alone.
+                    Reach customers who are actively looking for your type of service and ready to engage.
                   </p>
                 </div>
               </div>
@@ -181,8 +181,8 @@ export default function ListYourBusinessPage({ onNavigate }: ListYourBusinessPag
 
             {/* Platinum */}
             <div className="relative border border-gray-700/50 p-8 rounded-xl bg-gradient-to-br from-gray-900/50 to-black hover:border-yellow-600/40 transition-all duration-300">
-              <h3 className="text-2xl font-bold mb-2 text-white">Platinum Elite</h3>
-              <p className="text-gray-400 text-sm mb-6">For market leaders</p>
+              <h3 className="text-2xl font-bold mb-2 text-white">Signature</h3>
+              <p className="text-gray-400 text-sm mb-6">For established businesses</p>
               <div className="mb-8">
                 <span className="text-5xl font-bold text-yellow-500">R1,999</span>
                 <span className="text-gray-400 text-sm">/year</span>
@@ -199,27 +199,23 @@ export default function ListYourBusinessPage({ onNavigate }: ListYourBusinessPag
                 </li>
                 <li className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-                  <span>Concierge Support Access</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-yellow-500 flex-shrink-0" />
                   <span>Custom Business Profile</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-                  <span>Priority Inquiry Handling</span>
+                  <span>Verified Badge Display</span>
                 </li>
               </ul>
 
               <button className="w-full py-3 border border-gray-600 hover:border-yellow-600/50 text-white font-semibold rounded-lg transition-colors">
-                Discover Premium
+                Explore Signature
               </button>
             </div>
           </div>
 
           <div className="mt-12 p-6 border border-yellow-600/30 rounded-lg bg-yellow-600/5 text-center">
             <p className="text-gray-300">
-              <span className="text-yellow-400 font-bold">All listings include:</span> LowveldHub verification, directory presence, and access to our discerning customer base. Payments are annual, non-refundable after 14 days. Contact support for special arrangements.
+              <span className="text-yellow-400 font-bold">All listings include:</span> Verification badge, business directory presence, and direct customer access. Annual payment, non-refundable after 14 days.
             </p>
           </div>
         </div>
@@ -229,8 +225,8 @@ export default function ListYourBusinessPage({ onNavigate }: ListYourBusinessPag
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-950 border-y border-yellow-600/30">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-serif font-bold mb-4 text-white">Your Path to Excellence</h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">A streamlined process designed for serious businesses</p>
+            <h2 className="text-5xl font-serif font-bold mb-4 text-white">Our Review Process</h2>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">A straightforward process designed for businesses ready to grow</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -248,9 +244,9 @@ export default function ListYourBusinessPage({ onNavigate }: ListYourBusinessPag
             {/* Step 2 */}
             <div className="relative">
               <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-yellow-600 to-yellow-500 text-black font-bold mb-6 text-2xl shadow-lg shadow-yellow-600/30">2</div>
-              <h3 className="font-bold text-xl mb-3 text-white">Rigorous Review</h3>
+              <h3 className="font-bold text-xl mb-3 text-white">Review Your Application</h3>
               <p className="text-gray-400 leading-relaxed">
-                Our curation team evaluates your business against our quality standards within 24–72 hours. We're thorough because excellence demands it.
+                Our team reviews your business details against our quality standards within 24–72 hours. We're thorough to maintain a reliable platform.
               </p>
               {/* Arrow */}
               <div className="hidden md:block absolute -right-8 top-8 text-yellow-600 text-3xl font-light">→</div>
@@ -259,9 +255,9 @@ export default function ListYourBusinessPage({ onNavigate }: ListYourBusinessPag
             {/* Step 3 */}
             <div>
               <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-yellow-600 to-yellow-500 text-black font-bold mb-6 text-2xl shadow-lg shadow-yellow-600/30">3</div>
-              <h3 className="font-bold text-xl mb-3 text-white">Launch & Thrive</h3>
+              <h3 className="font-bold text-xl mb-3 text-white">Go Live</h3>
               <p className="text-gray-400 leading-relaxed">
-                Upon approval, your listing goes live to an audience of discerning customers. Start attracting qualified leads immediately.
+                Once approved, your listing goes live immediately. Start connecting with customers and growing your business.
               </p>
             </div>
           </div>
@@ -278,7 +274,7 @@ export default function ListYourBusinessPage({ onNavigate }: ListYourBusinessPag
 
           <div className="bg-gradient-to-br from-yellow-600/10 via-gray-900 to-gray-950 border-2 border-yellow-600/40 rounded-xl p-12 mb-8 backdrop-blur-sm">
             <p className="text-gray-300 mb-8 text-lg leading-relaxed">
-              Ready to join an elite community of exceptional businesses? Send us an email with your details. Our curation team will review your application with the care and attention it deserves.
+              Ready to apply? Send us your business details. Our team will review your application and get back to you within 1-2 business days.
             </p>
             
             <div className="mb-10 p-8 bg-black/50 rounded-lg border border-yellow-600/20">
@@ -378,12 +374,12 @@ export default function ListYourBusinessPage({ onNavigate }: ListYourBusinessPag
           href="mailto:info@lowveldhub.co.za"
           className="inline-block px-10 py-4 bg-yellow-600 hover:bg-yellow-700 text-black font-bold rounded-lg transition-colors text-lg mb-12"
         >
-          Email Your Application
+          Apply Now
         </a>
 
         <div className="border-t border-yellow-600/30 pt-12">
           <p className="text-2xl text-yellow-400 font-serif italic">
-            LowveldHub is curated. Listings are verified. Excellence is required, not optional.
+            LowveldHub is verified. Listings are reviewed. We maintain trust through quality.
           </p>
         </div>
       </section>

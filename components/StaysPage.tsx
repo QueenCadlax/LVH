@@ -243,7 +243,7 @@ export default function StaysPage({ navigate, businesses }: { navigate?: (view: 
           <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
         </div>
         <div className="relative h-full flex flex-col items-center justify-center text-center px-8 space-y-6">
-          <h1 className="text-5xl md:text-7xl font-serif font-bold text-white tracking-tight">Stays</h1>
+          <h1 className="text-5xl md:text-7xl font-serif font-bold text-white tracking-tight">Hospitality</h1>
           <p className="text-lg text-gray-400 max-w-2xl font-light">Discover luxury accommodations across Mpumalanga</p>
           
           {/* Search Bar */}
@@ -502,13 +502,13 @@ export default function StaysPage({ navigate, businesses }: { navigate?: (view: 
                 {/* Curated Badge Footer */}
                 <div className="text-center mt-16 pt-8 border-t border-[#2A2A2E]">
                   <p className="text-sm text-[#A0A0A6]">✓ Curated by <span className="text-[#D4AF37] font-bold">LowveldHub</span></p>
-                  <p className="text-xs text-[#7A7A80] mt-1">All stays verified and excellence-rated</p>
+                  <p className="text-xs text-[#7A7A80] mt-1">All hospitality venues verified and excellence-rated</p>
                 </div>
               </>
             ) : (
               <div className="flex flex-col items-center justify-center py-24 text-center">
                 <Heart className="w-12 h-12 text-[#D4AF37] mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-2">No Stays Found</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">No Hospitality Venues Found</h3>
                 <p className="text-[#A0A0A6] mb-6">Try adjusting your filters to discover luxury accommodations</p>
                 <button
                   onClick={clearFilters}

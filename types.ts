@@ -11,12 +11,12 @@ export interface Agent {
 }
 export enum Category {
   FoodAndHospitality = 'FOOD & HOSPITALITY',
-  TourismTravelAndStays = 'TOURISM, TRAVEL & STAYS',
+  TourismTravelAndStays = 'TOURISM, TRAVEL & HOSPITALITY',
   LuxuryAndLifestyle = 'LUXURY & LIFESTYLE',
   NightlifeAndEntertainment = 'NIGHTLIFE & ENTERTAINMENT',
   BeautyWellnessPersonalCare = 'BEAUTY, WELLNESS & PERSONAL CARE',
-  HealthAndMedical = 'HEALTH & MEDICAL',
-  RealEstateAndProperty = 'REAL ESTATE & PROPERTY',
+  HealthAndMedical = 'HEALTHCARE',
+  RealEstateAndProperty = 'REAL ESTATE',
   Automotive = 'AUTOMOTIVE',
   TransportChauffeursFleet = 'TRANSPORT, CHAUFFEUR & FLEET SERVICES',
   HomeConstructionAndTrades = 'HOME, CONSTRUCTION & TRADES',
@@ -44,74 +44,45 @@ export enum Category {
 }
 
 export const MARKETPLACE_CATEGORY_GROUPS = {
-  'Electronics & Tech': [
-    'Electronics',
-    'Computers & Tablets',
-    'Phones & Accessories',
-    'Audio & Home Entertainment',
+  'Electronics': [
+    'Laptops & Tablets',
+    'Audio & Speakers',
     'Cameras & Photography',
-    'Smart Home Devices'
+    'Smart Devices'
   ],
   'Fashion': [
-    'Fashion',
-    "Men's Fashion",
-    "Women's Fashion",
-    'Shoes',
+    'Men • Women • Shoes',
     'Bags & Accessories',
     'Jewelry & Watches'
   ],
-  'Beauty & Health': [
-    'Beauty & Health',
-    'Skincare',
-    'Haircare',
-    'Cosmetics',
-    'Fragrance',
-    'Personal Care'
-  ],
   'Home & Living': [
-    'Home & Living',
-    'Furniture',
+    'Furniture & Decor',
     'Kitchen & Dining',
-    'Bedding & Bath',
-    'Decor & Lighting',
-    'Garden & Outdoor'
+    'Garden & Outdoor',
+    'Rugs & Textiles'
+  ],
+  'Beauty & Wellness': [
+    'Skincare & Cosmetics',
+    'Haircare',
+    'Fragrance',
+    'Wellness & Supplements'
   ],
   'Automotive': [
-    'Automotive',
     'Car Accessories',
     'Motorbikes',
     'Tools & Equipment'
   ],
-  'Sports & Outdoors': [
-    'Sports & Outdoors',
-    'Fitness',
-    'Camping & Hiking',
-    'Cycling',
-    'Water Sports'
+  'Food & Beverage': [
+    'Gourmet & Artisan',
+    'Coffee & Tea',
+    'Wine & Spirits',
+    'Local Produce'
   ],
-  'Food & Beverages': [
-    'Food & Beverages',
-    'Gourmet',
-    'Snacks & Treats',
-    'Wines & Spirits'
-  ],
-  'Baby & Kids': [
-    'Baby & Kids',
-    "Children's Toys",
-    "Children's Clothing",
-    'Gear & Furniture'
-  ],
-  'Books, Music & Movies': [
-    'Books, Music & Movies',
-    'Books',
-    'Music Instruments',
-    'Vinyl & DVDs'
-  ],
-  'Luxury & Premium': [
-    'Luxury & Premium Picks',
-    'Designer Items',
+  'Luxury': [
+    'Designer Goods',
     'Limited Edition',
-    'Collectibles'
+    'Collectibles & Art',
+    'Artisan Crafts'
   ]
 };
 
