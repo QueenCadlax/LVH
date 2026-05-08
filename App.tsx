@@ -2084,7 +2084,8 @@ const Footer = ({ navigate, onLogin }: any) => {
                     <h4 className="text-white font-bold text-[11px] uppercase tracking-[0.15em] mb-8 text-gold-400">Explore</h4>
                     <ul className="space-y-3 text-sm text-gray-500">
                         <li><button onClick={() => navigate('directory')} className="hover:text-gold-400 transition-colors duration-300">Directory</button></li>
-                        <li><button onClick={() => navigate('marketplace')} className="hover:text-gold-400 transition-colors duration-300">Marketplace</button></li>
+                        {/* MARKETPLACE HIDDEN FOR MVP - UNCOMMENT TO ENABLE */}
+                        {/* <li><button onClick={() => navigate('marketplace')} className="hover:text-gold-400 transition-colors duration-300">Marketplace</button></li> */}
                         <li><button onClick={() => navigate('real-estate')} className="hover:text-gold-400 transition-colors duration-300">Real Estate</button></li>
                         <li><button onClick={() => navigate('cars')} className="hover:text-gold-400 transition-colors duration-300">Automotive</button></li>
                         <li><button onClick={() => navigate('stays')} className="hover:text-gold-400 transition-colors duration-300">Hospitality</button></li>
@@ -2095,7 +2096,8 @@ const Footer = ({ navigate, onLogin }: any) => {
                     <h4 className="text-white font-bold text-[11px] uppercase tracking-[0.15em] mb-8 text-gold-400">Platform</h4>
                     <ul className="space-y-3 text-sm text-gray-500">
                         <li><button onClick={() => navigate('list-your-business')} className="hover:text-gold-400 transition-colors duration-300">Add Listing</button></li>
-                        <li><button onClick={() => navigate('add-product')} className="hover:text-gold-400 transition-colors duration-300">Sell on Marketplace</button></li>
+                        {/* MARKETPLACE HIDDEN FOR MVP - UNCOMMENT TO ENABLE */}
+                        {/* <li><button onClick={() => navigate('add-product')} className="hover:text-gold-400 transition-colors duration-300">Sell on Marketplace</button></li> */}
                         <li><button onClick={() => navigate('contact-us')} className="hover:text-gold-400 transition-colors duration-300">Contact Us</button></li>
 
                         <li><button onClick={() => navigate('about')} className="hover:text-gold-400 transition-colors duration-300">About Us</button></li>
@@ -2793,59 +2795,7 @@ const MarketplaceStoryCards = ({ navigate }: any) => {
         </div>
       </section>
 
-      {/* LOCAL LEGENDS SECTION - Marketplace */}
-      <section className="py-20 bg-[#050505] relative overflow-hidden border-t border-gold-500/10">
-      {/* Background gradient */}
-      <div className="absolute inset-0 opacity-30 pointer-events-none">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-gold-500/10 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-gold-500/10 rounded-full filter blur-3xl"></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Header */}
-        <div className="mb-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-serif text-gold-400 mb-4 tracking-tight font-light">
-            Local Legends
-          </h2>
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto"></div>
-        </div>
-
-        {/* Hero Quote - Minimal & Elegant */}
-        <div className="mb-8 text-center">
-          <p className="text-gray-400 text-xs uppercase tracking-widest font-light mb-2">Support trusted local sellers in the Lowveld.</p>
-          <p className="text-gray-300 text-sm font-light mb-8">Discover authentic products from trusted local sellers.</p>
-        </div>
-
-        {/* CTA Buttons - Simple & Direct */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button 
-            onClick={() => navigate('marketplace')}
-            className="group px-8 py-3 border-2 border-gold-500/60 text-gold-400 rounded-full font-bold uppercase tracking-wider text-sm hover:bg-gold-500/20 hover:border-gold-400 transition-all duration-500 hover:shadow-[0_0_30px_rgba(227,185,44,0.3)]"
-          >
-            Explore Marketplace
-          </button>
-          <button 
-            onClick={() => navigate('business-submission')}
-            className="group px-8 py-3 bg-gold-500/20 border-2 border-gold-500/40 text-gold-300 rounded-full font-bold uppercase tracking-wider text-sm hover:bg-gold-500/30 hover:border-gold-400 transition-all duration-500"
-          >
-            Become a Seller
-          </button>
-        </div>
-      </div>
-
-      <style>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
-    </section>
+      {/* LOCAL LEGENDS SECTION - Marketplace - REMOVED FOR MVP */}
     </>
   );
 };
@@ -4430,7 +4380,6 @@ function App() {
   const navItems = [
     { id: 'home', label: 'Home' }, 
     { id: 'directory', label: 'Directory' }, 
-    { id: 'marketplace', label: 'Marketplace' }, 
     { id: 'lowveld-stories', label: 'Stories' }
   ];
 
@@ -4836,9 +4785,12 @@ function App() {
     }
     case 'transport': return <TransportPagePremium navigate={handleNavigate} />;
     case 'transport-detail': return <TransportDetailPremium id={selectedBusinessId || ''} navigate={handleNavigate} />;
-    case 'marketplace': return <MarketplaceUnified navigate={handleNavigate} selectedProductId={selectedBusinessId} cartItems={cartItems} onAddToCart={handleAddToCart} />;
-    case 'marketplace-detail': return <MarketplaceUnified navigate={handleNavigate} selectedProductId={selectedBusinessId} cartItems={cartItems} onAddToCart={handleAddToCart} />;
-    case 'add-product': return <SellOnMarketplaceView navigate={handleNavigate} />;
+    
+    // MARKETPLACE HIDDEN FOR MVP - UNCOMMENT BELOW TO ENABLE
+    // case 'marketplace': return <MarketplaceUnified navigate={handleNavigate} selectedProductId={selectedBusinessId} cartItems={cartItems} onAddToCart={handleAddToCart} />;
+    // case 'marketplace-detail': return <MarketplaceUnified navigate={handleNavigate} selectedProductId={selectedBusinessId} cartItems={cartItems} onAddToCart={handleAddToCart} />;
+    // case 'add-product': return <SellOnMarketplaceView navigate={handleNavigate} />;
+    
       case 'business-signup': return <BusinessSignupView navigate={handleNavigate} />;
       case 'events': return <EventsView favorites={favorites} toggleFavorite={toggleFavorite} />;
       case 'cars': return <CarsView navigate={handleNavigate} favorites={favorites} toggleFavorite={toggleFavorite} onChat={handleChatSend} activeArea={activeArea} setActiveArea={setActiveArea} />;
